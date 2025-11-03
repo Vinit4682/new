@@ -1374,17 +1374,23 @@
         const successToast = document.getElementById('success-toast');
 
         // Initialize the dashboard on page load
-        function initializeDashboard() {
-            // Show Users Home page by default
-            showPage('users-home-page');
-            
-            // Set Users navigation as active
-            usersNav.style.display = 'flex';
-            assistantNav.style.display = 'none';
-            
-            // Update breadcrumb
-            document.querySelector('.breadcrumb').innerHTML = 'Users > <span>Home</span>';
-        }
+function initializeDashboard() {
+    // Show Users Add User page by default
+    showPage('users-add-user-page');
+    
+    // Set Users navigation as active
+    usersNav.style.display = 'flex';
+    assistantNav.style.display = 'none';
+    
+    // Set Add User as active in secondary navigation
+    document.querySelectorAll('#users-nav .secondary-nav-item').forEach(nav => {
+        nav.classList.remove('active');
+    });
+    document.querySelector('#users-nav .secondary-nav-item[data-page="add-user"]').classList.add('active');
+    
+    // Update breadcrumb
+    document.querySelector('.breadcrumb').innerHTML = 'Users > <span>Add User</span>';
+}
 
         // Level 1 Navigation
         navItems.forEach(item => {
@@ -1553,3 +1559,4 @@
     </script>
 </body>
 </html>
+
