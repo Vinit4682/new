@@ -1373,6 +1373,19 @@
         const refreshDataBtn = document.getElementById('refresh-data');
         const successToast = document.getElementById('success-toast');
 
+        // Initialize the dashboard on page load
+        function initializeDashboard() {
+            // Show Users Home page by default
+            showPage('users-home-page');
+            
+            // Set Users navigation as active
+            usersNav.style.display = 'flex';
+            assistantNav.style.display = 'none';
+            
+            // Update breadcrumb
+            document.querySelector('.breadcrumb').innerHTML = 'Users > <span>Home</span>';
+        }
+
         // Level 1 Navigation
         navItems.forEach(item => {
             item.addEventListener('click', function() {
@@ -1531,6 +1544,11 @@
             if (event.target === editPermissionsModal) {
                 closeAllModals();
             }
+        });
+
+        // Initialize the dashboard when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
         });
     </script>
 </body>
