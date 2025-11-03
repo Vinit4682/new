@@ -1373,23 +1373,23 @@
         const refreshDataBtn = document.getElementById('refresh-data');
         const successToast = document.getElementById('success-toast');
 
-        // Initialize the dashboard on page load
+       // Initialize the dashboard on page load
 function initializeDashboard() {
-    // Show Users Add User page by default
-    showPage('users-add-user-page');
+    // Show Assistant Home page by default
+    showPage('assistant-home-page');
     
-    // Set Users navigation as active
-    usersNav.style.display = 'flex';
-    assistantNav.style.display = 'none';
+    // Set Assistant navigation as active
+    usersNav.style.display = 'none';
+    assistantNav.style.display = 'flex';
     
-    // Set Add User as active in secondary navigation
-    document.querySelectorAll('#users-nav .secondary-nav-item').forEach(nav => {
+    // Set Assistant as active in level 1 navigation
+    document.querySelectorAll('.nav-item').forEach(nav => {
         nav.classList.remove('active');
     });
-    document.querySelector('#users-nav .secondary-nav-item[data-page="add-user"]').classList.add('active');
+    document.querySelector('.nav-item[data-nav="assistant"]').classList.add('active');
     
     // Update breadcrumb
-    document.querySelector('.breadcrumb').innerHTML = 'Users > <span>Add User</span>';
+    document.querySelector('.breadcrumb').innerHTML = 'Assistant > <span>Home</span>';
 }
 
         // Level 1 Navigation
@@ -1559,4 +1559,5 @@ function initializeDashboard() {
     </script>
 </body>
 </html>
+
 
